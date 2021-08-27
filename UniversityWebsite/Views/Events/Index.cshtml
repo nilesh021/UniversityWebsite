@@ -1,0 +1,77 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+<h2>Manage Events</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Participated_User)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participated_User)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Event_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Event_Id })
+
+            </td>
+        </tr>
+    }
+
+</table>

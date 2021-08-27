@@ -1,0 +1,65 @@
+﻿@model UniversityWebsite.Models.Event
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Participated_User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Participated_User)
+        </dd>
+
+    </dl>
+</div>
+
+
+
+@Html.Action("Add", Model)
+
+
+
+@*
+    @Html.Partial("Add", Model)
+
+*@
+
+
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

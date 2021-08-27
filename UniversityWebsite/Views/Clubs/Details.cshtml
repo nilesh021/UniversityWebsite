@@ -1,0 +1,108 @@
+﻿@model UniversityWebsite.Models.Club
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+
+<h2>@Model.Club_Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Club_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Club_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_Member)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_Member)
+        </dd>
+
+        <dt>
+            @Html.Label("Current Members")
+        </dt>
+
+        <dd>
+            @ViewBag.CurrentMembers
+        </dd>
+
+
+        @if (@ViewBag.Member == "Yes")
+        {
+            <dt>
+                @Html.Label("Member Since:")
+            </dt>
+
+            <dd>
+                @ViewBag.JoinedOn
+            </dd>
+
+            <dt>
+                @Html.Label("Designation:")
+            </dt>
+
+            <dd>
+                @ViewBag.Designation
+            </dd>
+        }
+    </dl>
+</div>
+
+@if (Session["UserType"].Equals("User"))
+{
+    using (Html.BeginForm())
+    {
+        if (ViewBag.Member == "No")
+        {
+            <input type="submit" name="joinButton" value="Join" class="btn btn-default" />
+        }
+        if (ViewBag.Member == "Yes")
+        {
+            <input type="submit" name="leaveButton" value="Leave" class="btn btn-default" />
+        }
+    }
+
+}
+
+<p>
+    @if (Session["UserType"].Equals("Admin"))
+    {
+        <div>@Html.ActionLink("Edit", "Edit", new { id = Model.Club_Id }) |</div>
+
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@Html.Action("Members", Model)

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Idea_User_Relation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea.Idea_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Idea.Idea_Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Idea_Relation_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Idea_Relation_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Idea_Relation_Id })
+        </td>
+    </tr>
+}
+
+</table>

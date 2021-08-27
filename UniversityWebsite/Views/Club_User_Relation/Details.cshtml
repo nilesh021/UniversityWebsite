@@ -1,0 +1,50 @@
+﻿@model UniversityWebsite.Models.Club_User_Relation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Club_User_Relation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Club.Club_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Club.Club_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Joined_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Joined_Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Relation_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

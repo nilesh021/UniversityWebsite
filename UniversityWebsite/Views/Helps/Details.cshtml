@@ -1,0 +1,58 @@
+﻿@model UniversityWebsite.Models.Help
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Help</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdminResolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdminResolution)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HelpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

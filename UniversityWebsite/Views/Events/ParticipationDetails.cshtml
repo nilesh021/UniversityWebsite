@@ -1,0 +1,128 @@
+﻿@model UniversityWebsite.Models.Events_User_Relation
+
+@{
+    ViewBag.Title = "Participation Details";
+}
+
+
+@if (Model != null && !String.IsNullOrEmpty(Model.Id.ToString()))
+{
+    if (ViewBag.Flag == "AlreadyExist")
+    {
+
+       
+            
+            <div>
+                <h1>Participation Details</h1>
+                <h2>User  Is Alredy Reacted To This the Event  !!!</h2>
+                <h2>History</h2>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Event.Event_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Event.Event_Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.User_Id)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.User_Id)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Like_Dislike)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Like_Dislike)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Interest)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Interest)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Comment)
+                    </dd>
+
+                </dl>
+            </div>
+       
+
+
+    }
+    else
+    {
+        <div>
+            <h1>Participation Details</h1>
+            <h2>User Is  Reacted To This the Event  !!!</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Event.Event_Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Event.Event_Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.User_Id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.User_Id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Like_Dislike)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Like_Dislike)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Interest)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Interest)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Comment)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Comment)
+                </dd>
+
+             
+            </dl>
+        </div>
+
+    }
+}
+else
+{
+
+
+    <h1>Participation Details</h1>
+    <h2>Details not found!!!</h2>
+
+
+}

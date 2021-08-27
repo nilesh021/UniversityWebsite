@@ -1,0 +1,98 @@
+﻿@model UniversityWebsite.Models.Idea
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+
+
+
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Club.Club_Name)
+        </dt>
+
+        <dd>
+            @ViewBag.ClubName
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdeaCategory.Name)
+        </dt>
+
+        <dd>
+            @ViewBag.CategoryName
+        </dd>
+
+        <dt>
+            Posted by
+        </dt>
+
+        <dd>
+            @ViewBag.UserName
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idea_Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idea_Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posted_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posted_Date)
+        </dd>
+
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+@if (@Session["UserType"].Equals("User"))
+{
+    <div class="row">
+        <div class="col-lg-6">
+            @Html.Action("AddReaction", Model)
+        </div>
+
+        <div class="col-lg-6">
+            @Html.Action("ShareIdea", Model)
+        </div>
+    </div>
+}
+
+
+@Html.Action("IdeaComments", Model)

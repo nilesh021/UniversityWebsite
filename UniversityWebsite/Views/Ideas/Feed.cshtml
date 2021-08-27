@@ -1,0 +1,62 @@
+﻿@model IEnumerable<UniversityWebsite.Models.FeedViewModel>
+
+@{
+    ViewBag.Title = "Feed";
+}
+
+<br/>
+<input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+
+<h2>Feed</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Club.Club_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea.Idea_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea.Votes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea.Posted_Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Club_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaCategory.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idea.Idea_Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idea.Votes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idea.Posted_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Idea_Id})
+            </td>
+        </tr>
+    }
+
+</table>

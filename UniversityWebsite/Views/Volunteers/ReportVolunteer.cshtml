@@ -1,0 +1,48 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Volunteer>
+
+@{
+    ViewBag.Title = "ReportVolunteer";
+}
+
+<br />
+<p>
+    <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Service.Service_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service.Service_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.User_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Service_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Service_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.User_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.First_Name)
+            </td>
+
+        </tr>
+    }
+
+</table>

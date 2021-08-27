@@ -1,0 +1,66 @@
+﻿@model UniversityWebsite.Models.Share
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Share</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Receiver.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receiver.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sender.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sender.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shared_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shared_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shared_Type_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shared_Type_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shared_Item_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shared_Item_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Share_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

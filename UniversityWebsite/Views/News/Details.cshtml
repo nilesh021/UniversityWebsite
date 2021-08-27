@@ -1,0 +1,56 @@
+﻿@model UniversityWebsite.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<p>
+    <br />
+    <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashboard","Home")'" />
+</p>
+
+
+<h2>@Model.News_Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.News_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.News_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.News_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

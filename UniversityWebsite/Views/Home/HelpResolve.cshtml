@@ -1,0 +1,58 @@
+﻿@model UniversityWebsite.Models.NewHelpViewModel
+@{
+    ViewBag.Title = "HelpResolve";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+}
+
+<h2>Help-Resolve</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Date Of Ticket</th>
+            <th>Status</th>
+            <th>ResolveIssue</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ var i = 1; }
+        @foreach (var item in Model.HelpModelRecord)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.Email</td>
+                <td>@item.DOT</td>
+                @if (item.AdminResolution != null && item.AdminResolution.Length > 0)
+                {
+                    <td>@item.AdminResolution</td>
+                }
+                else
+                {
+                    <td>Issue is not Resolved Yet!</td>
+                }
+                <td>
+                    <a href="@Url.Action("ViewSingleHelpRequest", "Home", new { helpId = item.HelpId })">Details</a>
+                </td>
+            </tr>
+            { i++; }
+        }
+    </tbody>
+</table>

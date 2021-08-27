@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "UserDashboard";
+}
+
+@if (Convert.ToInt32(@Session["UnreadMessages"]) > 0)
+{
+    <p style="color:red">@Html.ActionLink("You have new messages","SharedWithMe","Shares")</p>
+}

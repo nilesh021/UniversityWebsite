@@ -1,0 +1,117 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Grievance>
+
+@{
+    ViewBag.Title = "User Index";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+
+<h2>Grievances</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2>
+    History Of Grievances
+</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sub_Topic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expected_Resolution_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_On)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sub_Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expected_Resolution_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin_Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_On)
+            </td>
+            <td>
+                @if (item.Status == "Resolved")
+                {
+                    <p> @Html.ActionLink("Complete", "Complete", new { id = item.Grievance_Id }) </p>
+
+                }
+                else if (item.Status == "Complete")
+                {
+
+                    <p>Closed</p>
+
+                }
+                else
+                {
+                    <p>Active</p>
+
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

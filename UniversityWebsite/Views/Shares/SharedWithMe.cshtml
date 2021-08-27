@@ -1,0 +1,72 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Share>
+@{
+    ViewBag.Title = "SharedWithMe";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+
+<h2>Shared With Me</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Sender
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shared_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shared_Type_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shared_Item_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seen)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sender.First_Name) @Html.DisplayFor(modelItem => item.Sender.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shared_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shared_Type_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shared_Item_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seen)
+            </td>
+            <td>
+                @Html.ActionLink("See", "See", new { share_id = item.Share_Id, item_id = item.Shared_Type_Id, type_id = item.Shared_Type })
+
+            </td>
+        </tr>
+    }
+
+</table>

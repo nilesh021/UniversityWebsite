@@ -1,0 +1,77 @@
+﻿@model UniversityWebsite.Models.Help
+@{
+    ViewBag.Title = "ViewSingleHelpRequest";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+}
+
+
+<h2>View-Single-Help-Request</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Date Of Ticket</th>
+            <th scope="col">Issue</th>
+            <th scope="col">Description</th>
+            <th scope="col">Resolve-Issue</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">@Model.Email</td>
+            <td>@Model.DOT</td>
+            <td>@Model.Issue</td>
+            <td>@Model.Description</td>
+            @if (Model.AdminResolution != null && Model.AdminResolution.Length > 0)
+            {
+                <td>@Model.AdminResolution</td>
+            }
+            else
+            {
+
+                if (User.IsInRole("IsAdmin"))
+                {
+                    <td>
+                        @using (Html.BeginForm("AddResolution", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.HiddenFor(x => x.HelpId)
+                            @Html.HiddenFor(x => x.Email)
+                            @Html.HiddenFor(x => x.DOT)
+                            @Html.HiddenFor(x => x.Issue)
+                            @Html.HiddenFor(x => x.Description)
+                            @Html.HiddenFor(x => x.AdminResolution)
+                            <input type="submit" value="Add Resolution" />
+                        }
+
+
+
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Issue is not resolved yet!
+                    </td>
+                }
+
+            }
+        </tr>
+    </tbody>
+</table>

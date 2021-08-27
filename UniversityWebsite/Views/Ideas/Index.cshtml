@@ -1,0 +1,128 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Idea>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+}
+
+
+
+<h2>Ideas</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            @Html.Label("Club Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("cn", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("ctn", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="filterButton" value="Filter" class="btn btn-default" />
+                <input type="submit" name="clearButton" value="Clear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@if (Session["UserType"].Equals("User"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Club.Club_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idea_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Votes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Posted_Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Club_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaCategory.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idea_Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Votes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posted_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Idea_Id })
+
+                @if (@Session["UserType"].Equals("Admin"))
+                {
+                    <div>
+                      
+                        |@Html.ActionLink("Delete", "Delete", new { id = item.Club_Id })
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+
+</table>

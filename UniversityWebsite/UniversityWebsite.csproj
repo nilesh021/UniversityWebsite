@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE1BD495-105C-46A0-8FF1-8F1CFD13FF37}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniversityWebsite</RootNamespace>
+    <AssemblyName>UniversityWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44360</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\ClubsController.cs" />
+    <Compile Include="Controllers\Club_User_RelationController.cs" />
+    <Compile Include="Controllers\CreateGrievanceViewModel.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\Events_User_RelationController.cs" />
+    <Compile Include="Controllers\GrievancesController.cs" />
+    <Compile Include="Controllers\HelpsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdeasController.cs" />
+    <Compile Include="Controllers\Idea_User_RelationController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SharesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
+    <Compile Include="Migrations\202108180920011_CreateTableIdea.cs" />
+    <Compile Include="Migrations\202108180920011_CreateTableIdea.Designer.cs">
+      <DependentUpon>202108180920011_CreateTableIdea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108181012101_CreateTableIdeaUserRelation.cs" />
+    <Compile Include="Migrations\202108181012101_CreateTableIdeaUserRelation.Designer.cs">
+      <DependentUpon>202108181012101_CreateTableIdeaUserRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108190959463_CreateTableIdeaCategory.cs" />
+    <Compile Include="Migrations\202108190959463_CreateTableIdeaCategory.Designer.cs">
+      <DependentUpon>202108190959463_CreateTableIdeaCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108191000587_AddValueToIdeaCategory.cs" />
+    <Compile Include="Migrations\202108191000587_AddValueToIdeaCategory.Designer.cs">
+      <DependentUpon>202108191000587_AddValueToIdeaCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108191006086_AddIdeaCategoryToIdeaClass.cs" />
+    <Compile Include="Migrations\202108191006086_AddIdeaCategoryToIdeaClass.Designer.cs">
+      <DependentUpon>202108191006086_AddIdeaCategoryToIdeaClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108192028288_AddedRelationToIdeaCategoryInIdea.cs" />
+    <Compile Include="Migrations\202108192028288_AddedRelationToIdeaCategoryInIdea.Designer.cs">
+      <DependentUpon>202108192028288_AddedRelationToIdeaCategoryInIdea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108170902086_CreateTableClub.cs" />
+    <Compile Include="Migrations\202108170902086_CreateTableClub.designer.cs">
+      <DependentUpon>202108170902086_CreateTableClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171042480_CreateTableEvent.cs" />
+    <Compile Include="Migrations\202108171042480_CreateTableEvent.Designer.cs">
+      <DependentUpon>202108171042480_CreateTableEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171344583_CreateTableNews.cs" />
+    <Compile Include="Migrations\202108171344583_CreateTableNews.Designer.cs">
+      <DependentUpon>202108171344583_CreateTableNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171433162_CreateTableUser.cs" />
+    <Compile Include="Migrations\202108171433162_CreateTableUser.Designer.cs">
+      <DependentUpon>202108171433162_CreateTableUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171446136_CreateTableClubUserRelation.cs" />
+    <Compile Include="Migrations\202108171446136_CreateTableClubUserRelation.Designer.cs">
+      <DependentUpon>202108171446136_CreateTableClubUserRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108192355477_WorkOnUserReaction.cs" />
+    <Compile Include="Migrations\202108192355477_WorkOnUserReaction.Designer.cs">
+      <DependentUpon>202108192355477_WorkOnUserReaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108200010348_SetDefaultValuesForVoteCommentInIdeaUserRelation.cs" />
+    <Compile Include="Migrations\202108200010348_SetDefaultValuesForVoteCommentInIdeaUserRelation.Designer.cs">
+      <DependentUpon>202108200010348_SetDefaultValuesForVoteCommentInIdeaUserRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108211931338_AddTableShare.cs" />
+    <Compile Include="Migrations\202108211931338_AddTableShare.Designer.cs">
+      <DependentUpon>202108211931338_AddTableShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108221641593_TableShareChangedAlertToSeen.cs" />
+    <Compile Include="Migrations\202108221641593_TableShareChangedAlertToSeen.Designer.cs">
+      <DependentUpon>202108221641593_TableShareChangedAlertToSeen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108221736112_TableShareAddedColumnSharedItemTitle.cs" />
+    <Compile Include="Migrations\202108221736112_TableShareAddedColumnSharedItemTitle.Designer.cs">
+      <DependentUpon>202108221736112_TableShareAddedColumnSharedItemTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230525334_AddTableAdmin.cs" />
+    <Compile Include="Migrations\202108230525334_AddTableAdmin.Designer.cs">
+      <DependentUpon>202108230525334_AddTableAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230942488_TabeClubUserRelationRemoveVoteColumn.cs" />
+    <Compile Include="Migrations\202108230942488_TabeClubUserRelationRemoveVoteColumn.Designer.cs">
+      <DependentUpon>202108230942488_TabeClubUserRelationRemoveVoteColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250757391_AddTableVolunteeAndService.cs" />
+    <Compile Include="Migrations\202108250757391_AddTableVolunteeAndService.Designer.cs">
+      <DependentUpon>202108250757391_AddTableVolunteeAndService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250801272_AddTableGrievance.cs" />
+    <Compile Include="Migrations\202108250801272_AddTableGrievance.Designer.cs">
+      <DependentUpon>202108250801272_AddTableGrievance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250803500_AddTableHelp.cs" />
+    <Compile Include="Migrations\202108250803500_AddTableHelp.Designer.cs">
+      <DependentUpon>202108250803500_AddTableHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250812476_UpdatedTableVolunteerAndService.cs" />
+    <Compile Include="Migrations\202108250812476_UpdatedTableVolunteerAndService.Designer.cs">
+      <DependentUpon>202108250812476_UpdatedTableVolunteerAndService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250848020_TableServiceRenamedRequiredVolunteerColumn.cs" />
+    <Compile Include="Migrations\202108250848020_TableServiceRenamedRequiredVolunteerColumn.Designer.cs">
+      <DependentUpon>202108250848020_TableServiceRenamedRequiredVolunteerColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108250917381_ServiceTableRenameColumnToUserId.cs" />
+    <Compile Include="Migrations\202108250917381_ServiceTableRenameColumnToUserId.Designer.cs">
+      <DependentUpon>202108250917381_ServiceTableRenameColumnToUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108251015131_MakeServiceIdAutoGenerated.cs" />
+    <Compile Include="Migrations\202108251015131_MakeServiceIdAutoGenerated.Designer.cs">
+      <DependentUpon>202108251015131_MakeServiceIdAutoGenerated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108251031452_FulifilPendingChanges.cs" />
+    <Compile Include="Migrations\202108251031452_FulifilPendingChanges.Designer.cs">
+      <DependentUpon>202108251031452_FulifilPendingChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108251232372_DropTableService.cs" />
+    <Compile Include="Migrations\202108251232372_DropTableService.Designer.cs">
+      <DependentUpon>202108251232372_DropTableService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108251233504_AddTableService.cs" />
+    <Compile Include="Migrations\202108251233504_AddTableService.Designer.cs">
+      <DependentUpon>202108251233504_AddTableService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260836440_AddTableEventsUserRelation.cs" />
+    <Compile Include="Migrations\202108260836440_AddTableEventsUserRelation.Designer.cs">
+      <DependentUpon>202108260836440_AddTableEventsUserRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260841289_AddedPropertiesToTableEvent.cs" />
+    <Compile Include="Migrations\202108260841289_AddedPropertiesToTableEvent.Designer.cs">
+      <DependentUpon>202108260841289_AddedPropertiesToTableEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108261720383_changesadminandhelpmodel.cs" />
+    <Compile Include="Migrations\202108261720383_changesadminandhelpmodel.Designer.cs">
+      <DependentUpon>202108261720383_changesadminandhelpmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108261740059_helpmodeluseridadded.cs" />
+    <Compile Include="Migrations\202108261740059_helpmodeluseridadded.Designer.cs">
+      <DependentUpon>202108261740059_helpmodeluseridadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108261806536_vmchange.cs" />
+    <Compile Include="Migrations\202108261806536_vmchange.Designer.cs">
+      <DependentUpon>202108261806536_vmchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108270446318_serviceadmindrop.cs" />
+    <Compile Include="Migrations\202108270446318_serviceadmindrop.Designer.cs">
+      <DependentUpon>202108270446318_serviceadmindrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AddEventReactionViewModel.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Club.cs" />
+    <Compile Include="Models\Club_User_Relation.cs" />
+    <Compile Include="Models\CreateGrievanceViewModel.cs" />
+    <Compile Include="Models\CreateHelpTicketViewModel.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Events_User_Relation.cs" />
+    <Compile Include="Models\FeedViewModel.cs" />
+    <Compile Include="Models\Grievance.cs" />
+    <Compile Include="Models\Help.cs" />
+    <Compile Include="Models\Idea.cs" />
+    <Compile Include="Models\IdeaCategory.cs" />
+    <Compile Include="Models\Idea_User_Relation.cs" />
+    <Compile Include="Models\MyDBContext.cs" />
+    <Compile Include="Models\NewHelpViewModel.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\OtherMemberViewModelcs.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Share.cs" />
+    <Compile Include="Models\ShareEventViewModel.cs" />
+    <Compile Include="Models\ShareIdeaViewModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserIndexEventViewModel.cs" />
+    <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-dark.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\82.jpg" />
+    <Content Include="images\954.jpg" />
+    <Content Include="images\956.jpg" />
+    <Content Include="images\962.jpg" />
+    <Content Include="images\963.png" />
+    <Content Include="images\club.png" />
+    <Content Include="images\events1.png" />
+    <Content Include="images\feed.jpg" />
+    <Content Include="images\finalshare.jpg" />
+    <Content Include="images\Grivance.png" />
+    <Content Include="images\help.png" />
+    <Content Include="images\news.png" />
+    <Content Include="images\socialservice.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Clubs\Create.cshtml" />
+    <Content Include="Views\Clubs\Delete.cshtml" />
+    <Content Include="Views\Clubs\Details.cshtml" />
+    <Content Include="Views\Clubs\Edit.cshtml" />
+    <Content Include="Views\Clubs\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Clubs\_Members.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\UserDashboard.cshtml" />
+    <Content Include="Views\Ideas\Create.cshtml" />
+    <Content Include="Views\Ideas\Delete.cshtml" />
+    <Content Include="Views\Ideas\Details.cshtml" />
+    <Content Include="Views\Ideas\Edit.cshtml" />
+    <Content Include="Views\Ideas\IdeaReaction.cshtml" />
+    <Content Include="Views\Idea_User_Relation\Create.cshtml" />
+    <Content Include="Views\Idea_User_Relation\Delete.cshtml" />
+    <Content Include="Views\Idea_User_Relation\Details.cshtml" />
+    <Content Include="Views\Idea_User_Relation\Edit.cshtml" />
+    <Content Include="Views\Idea_User_Relation\Index.cshtml" />
+    <Content Include="Views\Ideas\_IdeaComments.cshtml" />
+    <Content Include="Views\Ideas\_AddReaction.cshtml" />
+    <Content Include="Views\Ideas\Index.cshtml" />
+    <Content Include="Views\Ideas\_ShareIdea.cshtml" />
+    <Content Include="Views\Ideas\_ShareError.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
+    <Content Include="Views\Shares\Create.cshtml" />
+    <Content Include="Views\Shares\Delete.cshtml" />
+    <Content Include="Views\Shares\Details.cshtml" />
+    <Content Include="Views\Shares\Edit.cshtml" />
+    <Content Include="Views\Shares\Index.cshtml" />
+    <Content Include="Views\Shares\SharedWithMe.cshtml" />
+    <Content Include="Views\Users\_UnreadMessages.cshtml" />
+    <Content Include="Views\Events\_ShareEvent.cshtml" />
+    <Content Include="Views\Events\_ShareError.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\AdminDashboard.cshtml" />
+    <Content Include="Views\Club_User_Relation\Create.cshtml" />
+    <Content Include="Views\Club_User_Relation\Delete.cshtml" />
+    <Content Include="Views\Club_User_Relation\Details.cshtml" />
+    <Content Include="Views\Club_User_Relation\Edit.cshtml" />
+    <Content Include="Views\Club_User_Relation\Index.cshtml" />
+    <Content Include="Views\Clubs\Feed.cshtml" />
+    <Content Include="Views\Ideas\Feed.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\Participate.cshtml" />
+    <Content Include="Views\Services\ParticipationDetails.cshtml" />
+    <Content Include="Views\Services\ReportService.cshtml" />
+    <Content Include="Views\Services\UserIndex.cshtml" />
+    <Content Include="Views\Volunteers\Create.cshtml" />
+    <Content Include="Views\Volunteers\Delete.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
+    <Content Include="Views\Volunteers\ReportVolunteer.cshtml" />
+    <Content Include="Views\Grievances\Complete.cshtml" />
+    <Content Include="Views\Grievances\Create.cshtml" />
+    <Content Include="Views\Grievances\CreateGrievance.cshtml" />
+    <Content Include="Views\Grievances\Delete.cshtml" />
+    <Content Include="Views\Grievances\Details.cshtml" />
+    <Content Include="Views\Grievances\Edit.cshtml" />
+    <Content Include="Views\Grievances\Index.cshtml" />
+    <Content Include="Views\Grievances\List.cshtml" />
+    <Content Include="Views\Grievances\ReportGrievance.cshtml" />
+    <Content Include="Views\Grievances\Resolve.cshtml" />
+    <Content Include="Views\Grievances\UserIndex.cshtml" />
+    <Content Include="Views\Users\ForgotID.cshtml" />
+    <Content Include="Views\Users\ForgotPassword.cshtml" />
+    <Content Include="Views\Users\ResetPassword.cshtml" />
+    <Content Include="Views\Events_User_Relation\Create.cshtml" />
+    <Content Include="Views\Events_User_Relation\Delete.cshtml" />
+    <Content Include="Views\Events_User_Relation\Details.cshtml" />
+    <Content Include="Views\Events_User_Relation\Edit.cshtml" />
+    <Content Include="Views\Events_User_Relation\Index.cshtml" />
+    <Content Include="Views\Events\AddEventReaction.cshtml" />
+    <Content Include="Views\Events\Cards.cshtml" />
+    <Content Include="Views\Events\DetailsReaction.cshtml" />
+    <Content Include="Views\Events\EditReaction.cshtml" />
+    <Content Include="Views\Events\otherMember.cshtml" />
+    <Content Include="Views\Events\Participate.cshtml" />
+    <Content Include="Views\Events\ParticipationDetails.cshtml" />
+    <Content Include="Views\Events\ReportEvent.cshtml" />
+    <Content Include="Views\Events\SimilarEvent.cshtml" />
+    <Content Include="Views\Events\UserIndex.cshtml" />
+    <Content Include="Views\Events\_addreaction.cshtml" />
+    <Content Include="Views\Events\_User_Index.cshtml" />
+    <Content Include="Views\Events\Share.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\HelpResolve.cshtml" />
+    <Content Include="Views\Home\ViewSingleHelpRequest.cshtml" />
+    <Content Include="Views\Ideas\ReportIdea.cshtml" />
+    <Content Include="Views\Helps\Create.cshtml" />
+    <Content Include="Views\Helps\Delete.cshtml" />
+    <Content Include="Views\Helps\Details.cshtml" />
+    <Content Include="Views\Helps\Edit.cshtml" />
+    <Content Include="Views\Helps\Index.cshtml" />
+    <Content Include="Views\Admins\ForgotID.cshtml" />
+    <Content Include="Views\Admins\ForgotPassword.cshtml" />
+    <Content Include="Views\Admins\ResetPassword.cshtml" />
+    <Content Include="Views\Admins\Login.cshtml" />
+    <Content Include="Views\Helps\CreateHelpTicket.cshtml" />
+    <Content Include="Views\Helps\UserIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108170902086_CreateTableClub.resx">
+      <DependentUpon>202108170902086_CreateTableClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171042480_CreateTableEvent.resx">
+      <DependentUpon>202108171042480_CreateTableEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171344583_CreateTableNews.resx">
+      <DependentUpon>202108171344583_CreateTableNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171433162_CreateTableUser.resx">
+      <DependentUpon>202108171433162_CreateTableUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171446136_CreateTableClubUserRelation.resx">
+      <DependentUpon>202108171446136_CreateTableClubUserRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108180920011_CreateTableIdea.resx">
+      <DependentUpon>202108180920011_CreateTableIdea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108181012101_CreateTableIdeaUserRelation.resx">
+      <DependentUpon>202108181012101_CreateTableIdeaUserRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190959463_CreateTableIdeaCategory.resx">
+      <DependentUpon>202108190959463_CreateTableIdeaCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108191000587_AddValueToIdeaCategory.resx">
+      <DependentUpon>202108191000587_AddValueToIdeaCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108191006086_AddIdeaCategoryToIdeaClass.resx">
+      <DependentUpon>202108191006086_AddIdeaCategoryToIdeaClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108192028288_AddedRelationToIdeaCategoryInIdea.resx">
+      <DependentUpon>202108192028288_AddedRelationToIdeaCategoryInIdea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108192355477_WorkOnUserReaction.resx">
+      <DependentUpon>202108192355477_WorkOnUserReaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108200010348_SetDefaultValuesForVoteCommentInIdeaUserRelation.resx">
+      <DependentUpon>202108200010348_SetDefaultValuesForVoteCommentInIdeaUserRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108211931338_AddTableShare.resx">
+      <DependentUpon>202108211931338_AddTableShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108221641593_TableShareChangedAlertToSeen.resx">
+      <DependentUpon>202108221641593_TableShareChangedAlertToSeen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108221736112_TableShareAddedColumnSharedItemTitle.resx">
+      <DependentUpon>202108221736112_TableShareAddedColumnSharedItemTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230525334_AddTableAdmin.resx">
+      <DependentUpon>202108230525334_AddTableAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230942488_TabeClubUserRelationRemoveVoteColumn.resx">
+      <DependentUpon>202108230942488_TabeClubUserRelationRemoveVoteColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250757391_AddTableVolunteeAndService.resx">
+      <DependentUpon>202108250757391_AddTableVolunteeAndService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250801272_AddTableGrievance.resx">
+      <DependentUpon>202108250801272_AddTableGrievance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250803500_AddTableHelp.resx">
+      <DependentUpon>202108250803500_AddTableHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250812476_UpdatedTableVolunteerAndService.resx">
+      <DependentUpon>202108250812476_UpdatedTableVolunteerAndService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250848020_TableServiceRenamedRequiredVolunteerColumn.resx">
+      <DependentUpon>202108250848020_TableServiceRenamedRequiredVolunteerColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108250917381_ServiceTableRenameColumnToUserId.resx">
+      <DependentUpon>202108250917381_ServiceTableRenameColumnToUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108251015131_MakeServiceIdAutoGenerated.resx">
+      <DependentUpon>202108251015131_MakeServiceIdAutoGenerated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108251031452_FulifilPendingChanges.resx">
+      <DependentUpon>202108251031452_FulifilPendingChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108251232372_DropTableService.resx">
+      <DependentUpon>202108251232372_DropTableService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108251233504_AddTableService.resx">
+      <DependentUpon>202108251233504_AddTableService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260836440_AddTableEventsUserRelation.resx">
+      <DependentUpon>202108260836440_AddTableEventsUserRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260841289_AddedPropertiesToTableEvent.resx">
+      <DependentUpon>202108260841289_AddedPropertiesToTableEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108261720383_changesadminandhelpmodel.resx">
+      <DependentUpon>202108261720383_changesadminandhelpmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108261740059_helpmodeluseridadded.resx">
+      <DependentUpon>202108261740059_helpmodeluseridadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108261806536_vmchange.resx">
+      <DependentUpon>202108261806536_vmchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108270446318_serviceadmindrop.resx">
+      <DependentUpon>202108270446318_serviceadmindrop.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44360/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

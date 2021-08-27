@@ -1,0 +1,115 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Event>
+
+@{
+    ViewBag.Title = "Events User Index";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            @Html.Label("Enter From Date", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("fromdate", new { htmlAttributes = new { @class = "datefield", type = "date" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Enter To Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("Todate", new { htmlAttributes = new { @class = "datefield", type = "date" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="filterButton" value="Filter" class="btn btn-default" />
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+<h3>@ViewBag.Message</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.End_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Participated_User)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Event_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Start_Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.End_Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Participated_User)
+    </td>
+    
+    <td>
+
+        @if (item.Start_Date.CompareTo(DateTime.Today) < 0)
+        {
+
+            <p> @Html.ActionLink("Details", "Details", new { id = item.Event_Id })</p>
+            <p> Registration Closed</p>
+
+        }
+        else
+        {
+
+          <p> @Html.ActionLink("Details", "Details", new { id = item.Event_Id }) </p>
+
+          if (ViewBag.Flag == "Atending")
+          {
+              <p>Already Attending</p>
+        }
+        else
+        {
+            <p>
+                @Html.ActionLink("Attend", "Participate", new { id = item.Event_Id })
+            </p>
+              }
+          }
+
+
+    </td>
+    
+
+</tr>
+    }
+
+</table>

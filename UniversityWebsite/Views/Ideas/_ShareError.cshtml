@@ -1,0 +1,9 @@
+﻿@{
+    @ViewBag.Title
+}
+
+<h3>
+    @ViewBag.ErrorMessage
+</h3>
+
+@Html.ActionLink("Try again","Details",new { id = ViewBag.IdeaId})

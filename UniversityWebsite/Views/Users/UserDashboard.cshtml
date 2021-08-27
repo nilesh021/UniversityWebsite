@@ -1,0 +1,179 @@
+﻿@{
+    ViewBag.Title = "UserDashboard";
+}
+
+
+<hr />
+<div class="pull-right">
+    <a class="btn btn-primary" href="@Url.Action("Logout","Home")">Logout</a>
+
+    @if (Convert.ToInt32(@Session["UnreadMessages"]) > 0)
+    {
+        <p style="color:red">@Html.ActionLink("You have new messages", "SharedWithMe", "Shares")</p>
+    }
+</div>
+
+
+<h2>
+    Welcome! <br />
+    @Session["UserId"] - @Session["UserName"]
+</h2>
+<h2>User Dashboard</h2>
+<hr />
+<table class="table">
+    <hr />
+    <tr>
+        <td>
+            <div class="card" style="width: 18rem;">
+                <img src="~/images/club.png" class="card-img-top" alt="..." width="150" height="160">
+                <div class="card-body">
+                    <h3 class="card-title">Clubs</h3>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;"> @Html.ActionLink("Clubs", "Index", "Clubs")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/events1.png" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title">Events</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;">  @Html.ActionLink("Events", "Index", "Events")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/954.jpg" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title">Idea</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;">  @Html.ActionLink("Ideas", "Index", "Ideas")</li>
+
+</ul>
+
+</div>
+</td>
+</tr>
+<tr>
+    <td>
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/news.png" class="card-img-top" alt="..." width="150" height="160">
+            <div class="card-body">
+                <h3 class="card-title">News</h3>
+
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;"> @Html.ActionLink("News", "Index", "News")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/finalshare.jpg" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title"> Shared With Me</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;"> @Html.ActionLink("Shared With Me", "SharedWithMe", "Shares")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/feed.jpg" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title">Feeds</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;">  @Html.ActionLink("Feed", "Feed", "Ideas")</li>
+
+</ul>
+
+</div>
+</td>
+</tr>
+
+<tr>
+    <td>
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/956.jpg" class="card-img-top" alt="..." width="150" height="160">
+            <div class="card-body">
+                <h3 class="card-title">Social Service</h3>
+               
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;"> @Html.ActionLink("Social Service", "Index", "Services")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/Grivance.png" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title">Grievance</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;">  @Html.ActionLink("Grievances", "Index", "Grievances")</li>
+
+</ul>
+
+</div>
+</td>
+<td>
+    <div class="card" style="width: 18rem;">
+        <img src="~/images/help.png" class="card-img-top" alt="..." width="150" height="160">
+        <div class="card-body">
+            <h3 class="card-title">Help Section</h3>
+
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background: #ffe5e5;
+  padding: 5px;">  @Html.ActionLink("Help", "Index", "Helps")</li>
+
+</ul>
+
+</div>
+</td>
+</tr>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+

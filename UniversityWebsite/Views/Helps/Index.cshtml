@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UniversityWebsite.Models.Help>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Session["UserType"].Equals("Admin"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("AdminDashBoard","Admins")'" />
+    </p>
+
+}
+@if (Session["UserType"].Equals("User"))
+{
+    <br />
+    <p>
+        <input type="button" class="btn btn-primary" value="Back to dashboard" onclick="location.href='@Url.Action("UserDashBoard","Users")'" />
+    </p>
+
+}
+
+
+<h2>All Pending Help Tickets</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminResolution)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminResolution)
+            </td>
+            <td>
+                @Html.ActionLink("Resolve", "Edit", new { id = item.HelpId }) 
+               
+            </td>
+        </tr>
+    }
+
+</table>
